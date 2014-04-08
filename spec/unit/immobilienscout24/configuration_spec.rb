@@ -12,6 +12,7 @@ describe Immobilienscout24::Configuration do
   it { should respond_to(:live_url) }
   it { should respond_to(:sandbox_url) }
   it { should respond_to(:disable_logging) }
+  it { should respond_to(:api_version) }
 
   context "default for" do
     let(:live_url) { 'https://rest.immobilienscout24.de/restapi' }
@@ -23,11 +24,18 @@ describe Immobilienscout24::Configuration do
     its(:request_strategy) { should eq Immobilienscout24::Api::Request::Json }
     its(:live_url) { should eq live_url }
     its(:sandbox_url) { should eq sandbox_url }
+    its(:api_version) { should eq "v1.0" }
+    its(:api_url) { should eq live_url }
 
     context "sandbox mode" do
       it "should return the sandbox url for the faraday_connection" do
-        expect(subject).to receive(:sandbox).and_return(true)
+        expect(subject).to receive(:api_url).and_return(sandbox_url)
         expect(subject.faraday_connection).to eq Hash[url: sandbox_url]
+      end
+
+      it "should return the sandbox url for the api_url" do
+        expect(subject).to receive(:sandbox).and_return(true)
+        expect(subject.api_url).to eq sandbox_url
       end
     end
   end

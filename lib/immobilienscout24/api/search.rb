@@ -7,7 +7,7 @@ module Immobilienscout24
       end
 
       def search_api(resource)
-        "api/search/v1.0/search#{resource}"
+        "api/search/#{configuration.api_version}/search#{resource}"
       end
 
     end

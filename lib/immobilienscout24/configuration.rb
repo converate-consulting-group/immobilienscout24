@@ -11,9 +11,10 @@ module Immobilienscout24
     attr_accessor :live_url
     attr_accessor :sandbox_url
     attr_accessor :disable_logging
+    attr_accessor :api_version
 
     def faraday_connection
-      @faraday_connection ||= {url: url}
+      @faraday_connection ||= {url: api_url}
     end
 
     def faraday_adapter
@@ -28,7 +29,7 @@ module Immobilienscout24
       @request_strategy ||= Immobilienscout24::Api::Request::Json
     end
 
-    def url
+    def api_url
       return sandbox_url if sandbox
       live_url
     end
@@ -39,6 +40,10 @@ module Immobilienscout24
 
     def sandbox_url
       @sandbox_url ||= 'http://rest.sandbox-immobilienscout24.de/restapi'
+    end
+
+    def api_version
+      @api_version ||= "v1.0"
     end
 
   end
