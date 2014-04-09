@@ -3,10 +3,10 @@ module Immobilienscout24
     module Search
 
       def region_search(params = {})
-        get search_api('/region'), params
+        get search_endpoint('/region'), params
       end
 
-      def search_api(resource)
+      def search_endpoint(resource)
         "api/search/#{configuration.api_version}/search#{resource}"
       end
 

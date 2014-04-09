@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Immobilienscout24::Configuration do
+  subject { described_class.new }
 
   it { should respond_to(:consumer_key) }
   it { should respond_to(:consumer_secret) }

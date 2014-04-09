@@ -1,12 +1,10 @@
 require 'faraday'
 require 'faraday_middleware'
 require "immobilienscout24/api"
-require "immobilienscout24/api/search"
 
 module Immobilienscout24
   class Client
     include Api
-    include Api::Search
 
     attr_accessor :token
     attr_accessor :token_secret

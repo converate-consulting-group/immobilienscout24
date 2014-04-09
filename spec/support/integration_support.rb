@@ -11,9 +11,13 @@ module IntegrationSupport
 
   def default_client
     # generated in playground
-    let(:token) { '619033e3-9fc0-4f3a-a0fe-58da8d4582d7' }
-    let(:token_secret) { 'XB5QRN1pjaWRrS+Aq+WhGS61Lr/WYayaMtF6uud24QRFUYzouuvb59Spk9YK31p3ZO1gXFN1AUrWTJQcZ+FngVo/2PcWPE//AQPmClvP5VM=' }
-    let(:client) { Immobilienscout24.client(token: token, token_secret: token_secret) }
+    let(:auth) {  YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'auth.yml')) }
+
+    let(:token) { auth["token"] }
+    let(:token_secret) { auth["token_secret"] }
+    let(:consumer) { Hash[consumer_key: auth["consumer_key"], consumer_secret: auth["consumer_secret"]] }
+
+    let!(:client) { Immobilienscout24.client(consumer: consumer, token: token, token_secret: token_secret) }
   end
 
 end

@@ -11,7 +11,7 @@ module Immobilienscout24
             self.url(path, request_data)
           when :post, :put, :delete
             self.path = path
-            if request_options.fetch(:raw_data)
+            if request_options[:raw_request]
               self.body = request_data
             else
               self.body = request_data.to_xml unless request_data.empty?
