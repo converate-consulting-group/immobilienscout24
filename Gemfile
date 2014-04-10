@@ -8,4 +8,5 @@ group :test do
   gem 'pry'
   gem 'vcr'
   gem 'json_spec'
+  gem 'hashie'
 end

@@ -5,6 +5,7 @@ require "immobilienscout24/api/request/json"
 require "immobilienscout24/api/request/xml"
 require "immobilienscout24/api/search"
 require "immobilienscout24/api/user"
+require "Immobilienscout24/api/real_estate"
 
 module Immobilienscout24
   module Api
@@ -12,6 +13,7 @@ module Immobilienscout24
     include Request
     include Search
     include User
+    include RealEstate
 
   end
 end

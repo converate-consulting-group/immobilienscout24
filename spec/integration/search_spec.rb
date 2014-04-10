@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Search requests", vcr: true do
+describe Immobilienscout24::Api::Search, vcr: true do
   default_config
   default_client
 
@@ -8,8 +8,7 @@ describe "Search requests", vcr: true do
     let(:search_data) { Hash[realestatetype: 'apartmentrent', geocodes: '1276'] }
 
     it "should return a result list" do
-      expect(client.region_search(search_data)).to respond_to :resultlist
+      expect(client.region_search(search_data)).to include "resultlist.resultlist"
     end
-
   end
 end

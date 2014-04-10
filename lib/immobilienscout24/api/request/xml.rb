@@ -5,6 +5,7 @@ module Immobilienscout24
       class Xml < Base
         def configure(method, path, request_data = {}, request_options = {})
           self.headers['Content-Type'] = "application/xml; charset=utf-8"
+          self.headers['Accept'] = "application/xml"
 
           case method
           when :get

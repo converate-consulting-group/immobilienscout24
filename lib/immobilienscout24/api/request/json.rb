@@ -6,6 +6,7 @@ module Immobilienscout24
 
         def configure(method, path, request_data = {}, request_options = {})
           self.headers['Content-Type'] = "application/json; charset=utf-8"
+          self.headers['Accept'] = "application/json"
 
           case method
           when :get

@@ -16,7 +16,7 @@ describe Immobilienscout24::Api::User do
     end
   end
 
-  describe "#curren_user" do
+  describe "#current_user" do
 
     it "should call the current user endpoint" do
       expect(subject).to receive(:user).with("me").and_return(response)
