@@ -1,5 +1,9 @@
 module Immobilienscout24
   module Api
+
+    # Methods for the RealEstate API
+    #
+    # @see http://developerwiki.immobilienscout24.de/wiki/User/Realestate
     module RealEstate
 
       def create_real_estate(estate, options = {})
@@ -23,5 +27,6 @@ module Immobilienscout24
       end
 
     end
+
   end
 end
