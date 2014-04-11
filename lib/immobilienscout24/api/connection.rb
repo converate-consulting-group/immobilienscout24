@@ -7,9 +7,9 @@ module Immobilienscout24
 
         connection = ::Faraday::Connection.new(configuration.faraday_connection) do |builder|
           builder.request  :oauth, oauth_credentials
+          builder.request  :multipart
           builder.request  :url_encoded
           builder.response(*configuration.faraday_logger) unless configuration.disable_logging
-          builder.response :raise_error
           builder.response :follow_redirects
 
           unless options[:raw_response]
@@ -18,7 +18,6 @@ module Immobilienscout24
             builder.response :json, content_type: /\bjson$/
           end
 
-          builder.use :instrumentation
           builder.adapter configuration.faraday_adapter
         end
 

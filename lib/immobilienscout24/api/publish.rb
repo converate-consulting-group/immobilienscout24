@@ -19,8 +19,10 @@ module Immobilienscout24
         delete publish_endpoint("/publish/#{id}")
       end
 
+      # -- endpoint
+
       def publish_endpoint(resource)
-        "api/offer/v1.0#{resource}"
+        ["api/offer/#{api_version}", resource].join
       end
 
     end

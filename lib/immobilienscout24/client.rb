@@ -30,5 +30,10 @@ module Immobilienscout24
     def configuration
       Immobilienscout24.configuration
     end
+
+    def api_version
+      configuration.api_version
+    end
+
   end
 end

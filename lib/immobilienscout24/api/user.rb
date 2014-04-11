@@ -10,8 +10,10 @@ module Immobilienscout24
         user("me")
       end
 
+      # -- endpoint
+
       def user_endpoint(resource)
-        "api/offer/#{configuration.api_version}#{resource}"
+        ["api/offer/#{api_version}", resource].join
       end
 
     end

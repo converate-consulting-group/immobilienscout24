@@ -21,9 +21,15 @@ module Immobilienscout24
         delete real_estate_endpoint("/realestate/#{id}", options)
       end
 
+      # -- endpoint
+
       def real_estate_endpoint(resource, options = {})
-        options = {user: "/user/me"}.merge(options)
-        "#{user_endpoint(options[:user])}#{resource}"
+        options = {user: "me"}.merge(options)
+        user_real_estate_endpoint(options.fetch(:user), resource, options)
+      end
+
+      def user_real_estate_endpoint(user, resource, options = {})
+        [user_endpoint("/user/#{user}"), resource].join
       end
 
     end

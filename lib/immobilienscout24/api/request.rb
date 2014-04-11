@@ -2,26 +2,27 @@ module Immobilienscout24
   module Api
     module Request
 
-      def get(path, request_data = {})
-        request(:get, path, request_data)
+      def get(path, request_data = nil, &block)
+        request(:get, path, request_data, &block)
       end
 
-      def post(path, request_data = {})
-        request(:post, path, request_data)
+      def post(path, request_data = nil, &block)
+        request(:post, path, request_data, &block)
       end
 
-      def put(path, request_data = {})
-        request(:put, path, request_data)
+      def put(path, request_data = nil, &block)
+        request(:put, path, request_data, &block)
       end
 
-      def delete(path, request_data = {})
-        request(:delete, path, request_data)
+      def delete(path, request_data = nil, &block)
+        request(:delete, path, request_data, &block)
       end
 
-      def request(method, path, request_data = {})
+      def request(method, path, request_data = nil, &block)
         response = connection(request_options).send(method) do |request|
-          strategy = configuration.request_strategy.new(request)
-          configured_request = strategy.configure(method, path, request_data, request_options)
+          request_config = {method: method, path: path, request_data: request_data, request_options: request_options}
+          strategy = configuration.request_strategy.new(request, request_config)
+          configured_request = strategy.configure
 
           yield configured_request if block_given?
         end

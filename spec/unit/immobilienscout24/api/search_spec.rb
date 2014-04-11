@@ -17,14 +17,11 @@ describe Immobilienscout24::Api::Search do
   end
 
   describe "#search_endpoint" do
-    let(:configuration) { double(:configuration) }
     let(:api_version) { "v1.0" }
     let(:resource) { "/region" }
 
     it "should return the search endpoint" do
-      expect(subject).to receive(:configuration).and_return(configuration)
-      expect(configuration).to receive(:api_version).and_return(api_version)
-
+      expect(subject).to receive(:api_version).and_return(api_version)
       expect(subject.search_endpoint(resource)).to eq "api/search/#{api_version}/search#{resource}"
     end
   end

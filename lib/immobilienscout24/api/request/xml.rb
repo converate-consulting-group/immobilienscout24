@@ -3,24 +3,15 @@ module Immobilienscout24
     module Request
 
       class Xml < Base
-        def configure(method, path, request_data = {}, request_options = {})
-          self.headers['Content-Type'] = "application/xml; charset=utf-8"
-          self.headers['Accept'] = "application/xml"
 
-          case method
-          when :get
-            self.url(path, request_data)
-          when :post, :put, :delete
-            self.path = path
-            if request_options[:raw_request]
-              self.body = request_data
-            else
-              self.body = request_data.to_xml unless request_data.empty?
-            end
-          end
-
-          self
+        def content_type
+          "application/xml"
         end
+
+        def serialized_data(data)
+          data.to_xml
+        end
+
       end
 
     end

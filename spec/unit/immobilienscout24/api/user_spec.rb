@@ -26,14 +26,11 @@ describe Immobilienscout24::Api::User do
   end
 
   describe "#user_endpoint" do
-    let(:configuration) { double(:configuration) }
     let(:api_version) { "v1.0" }
     let(:resource) { "/user" }
 
     it "should return the user endpoint" do
-      expect(subject).to receive(:configuration).and_return(configuration)
-      expect(configuration).to receive(:api_version).and_return(api_version)
-
+      expect(subject).to receive(:api_version).and_return(api_version)
       expect(subject.user_endpoint(resource)).to eq "api/offer/#{api_version}#{resource}"
     end
   end

@@ -1,0 +1,7 @@
+{"common.attachment": {
+   "@xmlns":{"common":"http:\/\/rest.immobilienscout24.de\/schema\/common\/1.0"},
+   "@xsi.type": "common:Picture",
+   "title": "Estate Picture",
+   "floorplan": "false",
+   "titlePicture": "false"
+}}

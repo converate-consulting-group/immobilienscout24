@@ -6,8 +6,10 @@ module Immobilienscout24
         get search_endpoint('/region'), params
       end
 
+      # -- endpoint
+
       def search_endpoint(resource)
-        "api/search/#{configuration.api_version}/search#{resource}"
+        ["api/search/#{api_version}/search", resource].join
       end
 
     end
