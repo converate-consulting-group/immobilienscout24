@@ -6,6 +6,10 @@ module Immobilienscout24
     # @see http://developerwiki.immobilienscout24.de/wiki/User/Realestate/attachment
     module Attachment
 
+      def attachments(options = {})
+        get attachment_endpoint("/attachment", options)
+      end
+
       def create_attachment(metadata, attachment, options = {})
         attachment = ::Immobilienscout24::Helper::Attachment.new(attachment).build
         multipart  = {metadata: metadata, attachment: Faraday::UploadIO.new(*attachment)}
@@ -13,6 +17,10 @@ module Immobilienscout24
         with_request_options(multipart: true) do |client|
           client.post attachment_endpoint("/attachment", options), multipart
         end
+      end
+
+      def delete_attachment(id, options = {})
+        delete attachment_endpoint("/attachment/#{id}", options)
       end
 
       # -- endpoint
