@@ -7,10 +7,8 @@ module Immobilienscout24
     module Attachment
 
       def create_attachment(metadata, attachment, options = {})
-        multipart = {
-          metadata:   metadata,
-          attachment: Faraday::UploadIO.new(attachment, 'image/jpeg', 'estate.jpg')
-        }
+        attachment = ::Immobilienscout24::Helper::Attachment.new(attachment).build
+        multipart  = {metadata: metadata, attachment: Faraday::UploadIO.new(*attachment)}
 
         with_request_options(multipart: true) do |client|
           client.post attachment_endpoint("/attachment", options), multipart

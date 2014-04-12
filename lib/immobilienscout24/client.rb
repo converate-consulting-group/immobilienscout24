@@ -1,6 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require "immobilienscout24/api"
+require "Immobilienscout24/helper/attachment"
 
 module Immobilienscout24
   class Client

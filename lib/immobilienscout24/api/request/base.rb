@@ -22,6 +22,10 @@ module Immobilienscout24
           raise NotImplementedError
         end
 
+        def extension
+          raise NotImplementedError
+        end
+
         def configure
           set_accept_header
 
@@ -95,7 +99,7 @@ module Immobilienscout24
           request_data.inject({}) do |memo, (key, value)|
             if !value.is_a?(Faraday::UploadIO)
               io_value  = StringIO.new(serialized_data(value))
-              memo[key] = Faraday::UploadIO.new(io_value, content_type, "#{key}.json")
+              memo[key] = Faraday::UploadIO.new(io_value, content_type, "#{key}.#{extension}")
             else
               memo[key] = value
             end

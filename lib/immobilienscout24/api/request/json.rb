@@ -12,6 +12,10 @@ module Immobilienscout24
           data.to_json
         end
 
+        def extension
+          :json
+        end
+
       end
 
     end

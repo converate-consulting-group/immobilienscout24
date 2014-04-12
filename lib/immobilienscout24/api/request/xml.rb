@@ -12,6 +12,10 @@ module Immobilienscout24
           data.to_xml
         end
 
+        def extension
+          :xml
+        end
+
       end
 
     end
