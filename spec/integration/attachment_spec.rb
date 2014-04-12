@@ -12,8 +12,8 @@ describe Immobilienscout24::Api::Attachment, vcr: true do
   end
 
   describe "create attachment" do
-    let!(:attachment) { File.join(fixture_path, 'estate.jpg') }
-    let!(:meta) { mashify_fixture('raw_picture.json') }
+    let(:attachment) { File.join(fixture_path, 'estate.jpg') }
+    let(:meta) { mashify_fixture('raw_picture.json') }
 
     it "should create the attachment" do
       result = client.create_attachment(meta, attachment, estate: 62412598)

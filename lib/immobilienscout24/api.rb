@@ -8,6 +8,7 @@ require "immobilienscout24/api/user"
 require "immobilienscout24/api/real_estate"
 require "immobilienscout24/api/publish"
 require "immobilienscout24/api/attachment"
+require "immobilienscout24/api/contact"
 
 module Immobilienscout24
   module Api
@@ -18,6 +19,7 @@ module Immobilienscout24
     include RealEstate
     include Publish
     include Attachment
+    include Contact
 
   end
 end
