@@ -4,6 +4,20 @@ describe Immobilienscout24::Api::Publish, vcr: true do
   default_config
   default_client
 
+  describe "publications" do
+    it "should retrieve all publications" do
+      result = client.publications(62412598)
+      expect(result).to include "common.publishObjects"
+    end
+  end
+
+  describe "publication" do
+    it "should retrieve a single publication" do
+      result = client.publication("62412598_10001")
+      expect(result).to include "common.publishObject"
+    end
+  end
+
   describe "create publications" do
     let(:publications) { mashify_fixture('raw_publications.json') }
 

@@ -7,6 +7,15 @@ module Immobilienscout24
     # @see http://developerwiki.immobilienscout24.de/wiki/PublishChannel/GET
     module Publish
 
+      def publications(estate, params = {})
+        params = {realestate: estate}.merge(params)
+        get publish_endpoint("/publish"), params
+      end
+
+      def publication(id)
+        get publish_endpoint("/publish/#{id}")
+      end
+
       def create_publications(publications)
         post publish_endpoint("/publish/list"), publications
       end

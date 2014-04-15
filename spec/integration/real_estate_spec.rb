@@ -4,6 +4,20 @@ describe Immobilienscout24::Api::RealEstate, vcr: true do
   default_config
   default_client
 
+  describe "real estates" do
+    it "should retrieve all estates" do
+      result = client.real_estates
+      expect(result).to include "realestates.realEstates"
+    end
+  end
+
+  describe "real estate" do
+    it "should retrieve a single estate" do
+      result = client.real_estate(62412598)
+      expect(result).to include "realestates.apartmentBuy"
+    end
+  end
+
   describe "create real estate" do
     let(:estate) { mashify_fixture('raw_estate1.json') }
 

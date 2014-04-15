@@ -6,6 +6,14 @@ module Immobilienscout24
     # @see http://developerwiki.immobilienscout24.de/wiki/User/Realestate
     module RealEstate
 
+      def real_estates(options = {})
+        get real_estate_endpoint("/realestate", options)
+      end
+
+      def real_estate(id, options = {})
+        get real_estate_endpoint("/realestate/#{id}", options)
+      end
+
       def create_real_estate(estate, options = {})
         post real_estate_endpoint("/realestate", options), estate
       end
