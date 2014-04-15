@@ -1,4 +1,5 @@
 require 'pry'
+require 'yaml'
 require 'vcr'
 require 'hashie'
 require 'json_spec'

@@ -12,7 +12,6 @@ describe Immobilienscout24::Configuration do
   it { should respond_to(:sandbox) }
   it { should respond_to(:live_url) }
   it { should respond_to(:sandbox_url) }
-  it { should respond_to(:disable_logging) }
   it { should respond_to(:api_version) }
 
   context "default for" do

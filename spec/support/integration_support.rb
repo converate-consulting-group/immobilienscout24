@@ -4,14 +4,14 @@ module IntegrationSupport
     before do
       Immobilienscout24.configure do |config|
         config.sandbox = true
-        config.disable_logging = true
+        config.faraday_logger = false
       end
     end
   end
 
   def default_client
     # generated in playground
-    let(:auth) {  YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'auth.yml')) }
+    let(:auth) {  ::YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'auth.yml')) }
 
     let(:token) { auth["token"] }
     let(:token_secret) { auth["token_secret"] }

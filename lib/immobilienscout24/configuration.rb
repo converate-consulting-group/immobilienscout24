@@ -10,7 +10,6 @@ module Immobilienscout24
     attr_accessor :sandbox
     attr_accessor :live_url
     attr_accessor :sandbox_url
-    attr_accessor :disable_logging
     attr_accessor :api_version
 
     def faraday_connection
@@ -22,6 +21,7 @@ module Immobilienscout24
     end
 
     def faraday_logger
+      return false if @faraday_logger == false
       @faraday_logger ||= [:logger]
     end
 
@@ -44,6 +44,14 @@ module Immobilienscout24
 
     def api_version
       @api_version ||= "v1.0"
+    end
+
+    def build_extension
+      @build_extension ||= ->(builder, request_options){}
+    end
+
+    def logging?
+      faraday_logger && !faraday_logger.empty?
     end
 
   end

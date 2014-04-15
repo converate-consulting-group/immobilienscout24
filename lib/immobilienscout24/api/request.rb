@@ -19,7 +19,7 @@ module Immobilienscout24
       end
 
       def request(method, path, request_data = nil, &block)
-        response = connection(request_options).send(method) do |request|
+        response = connection.send(method) do |request|
           request_config = {method: method, path: path, request_data: request_data, request_options: request_options}
           strategy = configuration.request_strategy.new(request, request_config)
           configured_request = strategy.configure
