@@ -1,5 +1,3 @@
-require 'delegate'
-
 module Immobilienscout24
   module Api
     module Request

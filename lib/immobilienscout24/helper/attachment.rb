@@ -4,7 +4,7 @@ module Immobilienscout24
     # Basic helper for Immobilienscout24 attachments.
     # Will try to extract mime type and filename for you.
     #
-    # This helper won't work for files without an file extension.
+    # This helper won't work for files without a file extension.
     # (e.g. 'my_picture' instead of 'my_picture.jpg')
     #
     # If you have files without an extension you can build this
