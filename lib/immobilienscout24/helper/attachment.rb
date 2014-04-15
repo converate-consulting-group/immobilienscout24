@@ -56,7 +56,7 @@ module Immobilienscout24
       end
 
       def content_type
-        @content_type ||= self.class.mime_types[file_extension]
+        @content_type ||= self.class.mime_types[file_extension.downcase]
       end
 
       def self.mime_types

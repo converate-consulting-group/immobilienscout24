@@ -10,6 +10,10 @@ module Immobilienscout24
         get contact_endpoint("/contact", options)
       end
 
+      def contact(id)
+        get contact_endpoint("/contact/#{id}")
+      end
+
       def create_contact(contact, options = {})
         post contact_endpoint("/contact", options), contact
       end

@@ -23,7 +23,7 @@ describe Immobilienscout24::Api::RealEstate do
 
     it "should return a real estate response" do
       expect(subject).to receive(:real_estate_endpoint).
-        with("/realestate/#{estate_id}", {external: false}).and_return(endpoint)
+        with("/realestate/#{estate_id}", {}).and_return(endpoint)
 
       expect(subject).to receive(:put).with(endpoint, estate).and_return(response)
 

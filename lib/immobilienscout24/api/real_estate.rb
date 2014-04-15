@@ -11,9 +11,6 @@ module Immobilienscout24
       end
 
       def update_real_estate(id, estate, options = {})
-        options = {external: false}.merge(options)
-        id = "ext-#{id}" if options[:external]
-
         put real_estate_endpoint("/realestate/#{id}", options), estate
       end
 
