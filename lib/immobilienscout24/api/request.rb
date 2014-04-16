@@ -19,7 +19,7 @@ module Immobilienscout24
       end
 
       def request(method, path, request_data = nil, &block)
-        response = connection.send(method) do |request|
+        @last_response = response = connection.send(method) do |request|
           request_config = {method: method, path: path, request_data: request_data, request_options: request_options}
           strategy = configuration.request_strategy.new(request, request_config)
           configured_request = strategy.configure
@@ -27,9 +27,10 @@ module Immobilienscout24
           yield configured_request if block_given?
         end
 
-        return response if request_options[:raw_response]
+        return @last_response if request_options[:raw_response]
 
-        response.body
+        @last_response = response.body
+        @last_response
       end
 
       def with_request_options(options = {})
@@ -46,6 +47,10 @@ module Immobilienscout24
 
       def request_option_defaults
         {raw_response: false, raw_request: false}
+      end
+
+      def last_response
+        @last_response
       end
 
     end

@@ -45,6 +45,7 @@ describe Immobilienscout24::Api::Request do
       expect(response).to receive(:body).and_return(response_body)
 
       expect(subject.request(method, path, request_data)).to eq response_body
+      expect(subject.last_response).to eq response_body
     end
   end
 
@@ -69,6 +70,12 @@ describe Immobilienscout24::Api::Request do
   describe "#request_option_defaults" do
     it "should return the default hash" do
       expect(subject.request_option_defaults).to eq Hash[raw_response: false, raw_request: false]
+    end
+  end
+
+  describe "#last_response" do
+    it "should return nil when where was no request before" do
+      expect(subject.last_response).to be_nil
     end
   end
 
