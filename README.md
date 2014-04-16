@@ -1,8 +1,25 @@
 # Immobilienscout24
 
-A Ruby wrapper for the Immobilienscout24 REST API. This wrapper has all the important parts to create and maintain the real estate of a broker on Immobilienscout24.
+A Ruby wrapper for the Immobilienscout24 REST API. This wrapper has all the important parts for the import and export of real estates from and to Immobilienscout24.
 
-*Warning: This gem is not complete. There are still some parts of the Immobilienscout24 that we haven't had the time to implement. We will extend the functionallity as soon as we have more time. In the spirit of free software, everyone is encouraged to help improve this project.*
+Complete API's:
+
+* Attachment
+* Contact
+* Publish
+* RealEstate
+* User
+
+Incomplete:
+
+* Search
+* Expose
+* Geo Services
+* Product Valuation Services
+* Realtor
+* Construction Financing Lead engine API
+
+In the spirit of free software, everyone is encouraged to help improve this project.
 
 ## Quick start
 
