@@ -39,7 +39,9 @@ For the oauth process you can use the excellent [omniauth-immobilienscout24][oau
 
 ### Consuming resources
 
-Most methods return a `Resource` object which provides dot notation and `[]` access for fields returned in the API response.
+Most methods return a [Hashie::Mash][hashie] object which provides dot notation and `[]` access for fields returned in the API response.
+
+[hashie]: https://github.com/intridea/hashie#mash
 
 ```ruby
 # Fetch the real estates
@@ -57,7 +59,7 @@ end
 
 ### Creating / Updating resources
 
-The creation / modification of resources follows a simple rule: If you make JSON requests then the object that you send via the api has to respond to `.to_json`. If you make XML requests then it has to respond to `.to_xml`.
+The creation / modification of resources follows one simple rule: If you make JSON requests then the object that you send via the api has to respond to `to_json`. If you make XML requests then it has to respond to `to_xml`.
 
 ```ruby
 # Wrapper class for our request
@@ -71,7 +73,9 @@ class ImmoscoutEstate
 end
 
 immoscout_estate = ImmoscoutEstate.new
-immoscout_client.create_real_estate(immoscout_estate) # `.to_json` will be called on the immoscout_estate object
+
+# `to_json` will be called on the immoscout_estate object
+immoscout_client.create_real_estate(immoscout_estate)
 ```
 
 ### Configuration
@@ -90,8 +94,12 @@ config.sandbox = true
 # If you want to generate a log file
 config.faraday_logger = [:logger, Logger.new('log/immobilienscout24.log')]
 
-# There are more advanced configuration options. Take a look at `Immobilienscout24::Configuration`.
+# If you want to use xml
+config.request_strategy = Immobilienscout24::Api::Request::Xml
 ```
+
+There are more advanced configuration options. Take a look at `Immobilienscout24::Configuration`.
+
 
 ## Contributing
 
