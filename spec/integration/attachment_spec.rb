@@ -31,7 +31,7 @@ describe Immobilienscout24::Api::Attachment, vcr: true do
   describe "update attachment" do
     let(:attachment) { mashify_fixture('raw_picture.json') }
 
-    it "should create the attachment" do
+    it "should update the attachment" do
       result = client.update_attachment(663515214, attachment, estate: 62412598)
       expect(result.inspect).to include "MESSAGE_RESOURCE_UPDATED"
     end
