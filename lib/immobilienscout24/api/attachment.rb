@@ -10,6 +10,10 @@ module Immobilienscout24
         get attachment_endpoint("/attachment", options)
       end
 
+      def attachment(id, options = {})
+        get attachment_endpoint("/attachment/#{id}", options)
+      end
+
       def create_attachment(metadata, attachment, options = {})
         attachment = ::Immobilienscout24::Helper::Attachment.new(attachment).build
         multipart  = {metadata: metadata, attachment: Faraday::UploadIO.new(*attachment)}
@@ -17,6 +21,10 @@ module Immobilienscout24
         with_request_options(multipart: true) do |client|
           client.post attachment_endpoint("/attachment", options), multipart
         end
+      end
+
+      def update_attachment(id, attachment, options = {})
+        put attachment_endpoint("/attachment/#{id}", options), attachment
       end
 
       def delete_attachment(id, options = {})
