@@ -1,7 +1,13 @@
 module Immobilienscout24
   module Api
+
+    # Methods for the Immobilienscout24 connection
     module Connection
 
+      # Used for every API call to Immobilienscout24.
+      #
+      # @return [Faraday::Connection] Connection handler.
+      # @see https://github.com/lostisland/faraday
       def connection
         connection = ::Faraday::Connection.new(configuration.faraday_connection) do |builder|
           builder.request  :oauth, oauth_credentials

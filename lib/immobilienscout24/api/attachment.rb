@@ -8,7 +8,7 @@ module Immobilienscout24
     # @example
     #   client.attachment(663515214, estate: estate_id)
     #
-    # Per default the API will use the current user (`me`).
+    # Per default the client will use the current user (`me`).
     # If you want to use an other user then you have to provide
     # the id in the options hash.
     #
