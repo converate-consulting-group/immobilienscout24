@@ -38,13 +38,13 @@ module Immobilienscout24
           @file = attachment.path
         when Immobilienscout24::Helper::Attachment
           helper = attachment
-          @file, @content_type, @filename = helper.build
-          @file_extension = helper.file_extension
+          @file, @content_type = helper.file, helper.content_type
+          @filename, @file_extension = helper.filename, helper.file_extension
         end
       end
 
       def build
-        [file, content_type, filename]
+        Faraday::UploadIO.new(file, content_type, filename)
       end
 
       def file_extension
