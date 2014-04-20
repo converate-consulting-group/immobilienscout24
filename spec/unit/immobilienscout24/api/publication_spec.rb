@@ -5,6 +5,25 @@ describe Immobilienscout24::Api::Publish do
   let(:endpoint) { double(:endpoint) }
   let(:response) { double(:response) }
 
+  describe "#publications" do
+    let(:estate) { double(:estate) }
+    it "should return a response" do
+      expect(subject).to receive(:publish_endpoint).with("/publish").and_return(endpoint)
+      expect(subject).to receive(:get).with(endpoint, {realestate: estate}).and_return(response)
+      expect(subject.publications(estate)).to eq response
+    end
+  end
+
+  describe "#publication" do
+    let(:publication) { 1 }
+    it "should return a response" do
+      expect(subject).to receive(:publish_endpoint).with("/publish/#{publication}").and_return(endpoint)
+      expect(subject).to receive(:get).with(endpoint).and_return(response)
+
+      expect(subject.publication(publication)).to eq response
+    end
+  end
+
   describe "#create_publications" do
     let(:publications) { double(:publications) }
 
