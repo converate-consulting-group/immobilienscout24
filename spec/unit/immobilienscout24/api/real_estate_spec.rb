@@ -5,6 +5,24 @@ describe Immobilienscout24::Api::RealEstate do
   let(:endpoint) { double(:endpoint) }
   let(:response) { double(:response) }
 
+  describe "#real_estates" do
+    it "should return a response" do
+      expect(subject).to receive(:real_estate_endpoint).with("/realestate", {}).and_return(endpoint)
+      expect(subject).to receive(:get).with(endpoint).and_return(response)
+
+      expect(subject.real_estates).to eq response
+    end
+  end
+
+  describe "#real_estate" do
+    let(:estate) { 1 }
+    it "should return a response" do
+      expect(subject).to receive(:real_estate_endpoint).with("/realestate/#{estate}", {}).and_return(endpoint)
+      expect(subject).to receive(:get).with(endpoint).and_return(response)
+
+      expect(subject.real_estate(estate)).to eq response
+    end
+  end
 
   describe "#create_real_estate" do
     let(:estate) { double(:estate) }
@@ -53,4 +71,18 @@ describe Immobilienscout24::Api::RealEstate do
     end
   end
 
+  describe "#user_real_estate_endpoint" do
+    let(:user) { "me" }
+    let(:resource) { "resource" }
+    let(:user_endpoint) { "/user" }
+    let(:endpoint) { [user_endpoint, resource].join }
+
+    it "should return the endpoint" do
+      expect(subject).to receive(:user_endpoint).with("/user/#{user}").and_return(user_endpoint)
+
+
+      expect(subject.user_real_estate_endpoint(user, resource)).to eq endpoint
+    end
+
+  end
 end
