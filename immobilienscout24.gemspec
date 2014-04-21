@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "faraday", "< 0.9.0"
+  spec.add_runtime_dependency "faraday", "~> 0.8.9"
   spec.add_runtime_dependency "faraday_middleware", ">= 0.9.0"
   spec.add_runtime_dependency "multi_xml", ">= 0"
   spec.add_runtime_dependency "hashie", ">= 0"
