@@ -8,5 +8,3 @@ rvm:
 script: rspec
 before_script:
   - cp spec/support/auth.yml.tmpl spec/support/auth.yml
-
-
