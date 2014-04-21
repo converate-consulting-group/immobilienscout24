@@ -35,6 +35,8 @@ module Immobilienscout24
           configure_post_request
         end
 
+        protected
+
         def set_accept_header
           request.headers['Accept'] = content_type
         end
