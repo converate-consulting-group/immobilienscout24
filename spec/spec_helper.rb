@@ -3,7 +3,9 @@ require 'yaml'
 require 'vcr'
 require 'hashie'
 require 'json_spec'
+require 'webmock/rspec'
 require 'immobilienscout24'
+
 
 Dir[File.expand_path("../support/*.rb", __FILE__)].each { |f| require f }
 

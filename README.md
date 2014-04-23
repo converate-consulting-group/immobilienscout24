@@ -1,7 +1,8 @@
 # Immobilienscout24
 
-[![Build Status](https://travis-ci.org/converate-consulting-group/immobilienscout24.svg?branch=master)](https://travis-ci.org/converate-consulting-group/immobilienscout24)
 [![Gem Version](https://badge.fury.io/rb/immobilienscout24.svg)](http://badge.fury.io/rb/immobilienscout24)
+[![Build Status](https://travis-ci.org/converate-consulting-group/immobilienscout24.svg?branch=master)](https://travis-ci.org/converate-consulting-group/immobilienscout24)
+[![Dependency Status](https://gemnasium.com/converate-consulting-group/immobilienscout24.svg)](https://gemnasium.com/converate-consulting-group/immobilienscout24)
 
 A Ruby wrapper for the Immobilienscout24 REST API. This wrapper has all the important parts for the import and export of real estates from and to Immobilienscout24.
 

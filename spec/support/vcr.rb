@@ -1,5 +1,5 @@
 VCR.configure do |config|
-  config.hook_into :faraday
+  config.hook_into :webmock
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.configure_rspec_metadata!
 
@@ -11,7 +11,7 @@ VCR.configure do |config|
   }
 
   config.before_record do |env|
-    env.response.headers.delete('set-cookie')
+    env.response.headers.delete('Set-Cookie')
     env.request.headers.delete('Authorization')
   end
 end

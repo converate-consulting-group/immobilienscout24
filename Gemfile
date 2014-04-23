@@ -9,4 +9,5 @@ group :test do
   gem 'vcr'
   gem 'json_spec'
   gem 'hashie'
+  gem 'webmock', '>= 1.9'
 end
