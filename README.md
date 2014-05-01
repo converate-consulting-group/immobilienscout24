@@ -121,6 +121,11 @@ config.request_strategy = Immobilienscout24::Api::Request::Xml
 
 There are more advanced configuration options. Take a look at `Immobilienscout24::Configuration`.
 
+### Rails integration
+
+Take a look at the [wiki][wiki].
+
+[wiki]: https://github.com/converate-consulting-group/immobilienscout24/wiki/Useful-notes
 
 ## Contributing
 
@@ -134,7 +139,5 @@ There are more advanced configuration options. Take a look at `Immobilienscout24
 
 * Extend API
 * Write more tests
-* Extend README
-* Write wiki about multi-tanent management
 
 
