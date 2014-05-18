@@ -20,8 +20,8 @@ module Immobilienscout24
       # @see http://developerwiki.immobilienscout24.de/wiki/User/Realestate/GETALL
       # @example
       #   client.real_estates
-      def real_estates(options = {})
-        get real_estate_endpoint("/realestate", options)
+      def real_estates(params = {}, options = {})
+        get real_estate_endpoint("/realestate", options), params
       end
 
       # Get a single real estate

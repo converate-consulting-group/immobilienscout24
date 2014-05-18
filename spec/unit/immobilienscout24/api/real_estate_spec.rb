@@ -8,7 +8,7 @@ describe Immobilienscout24::Api::RealEstate do
   describe "#real_estates" do
     it "should return a response" do
       expect(subject).to receive(:real_estate_endpoint).with("/realestate", {}).and_return(endpoint)
-      expect(subject).to receive(:get).with(endpoint).and_return(response)
+      expect(subject).to receive(:get).with(endpoint, {}).and_return(response)
 
       expect(subject.real_estates).to eq response
     end
