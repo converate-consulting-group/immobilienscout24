@@ -52,7 +52,7 @@ module Immobilienscout24
       end
 
       def filename
-        @filname ||= File.basename(file)
+        @filename ||= File.basename(file)
       end
 
       def content_type
