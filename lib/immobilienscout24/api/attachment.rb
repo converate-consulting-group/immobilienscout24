@@ -90,8 +90,8 @@ module Immobilienscout24
       # @return [Hashie::Mash] Immobilienscout24 response
       # @example
       #   client.update_attachments_order(estate: 62412598, user: immoscout_user_id)
-      def update_attachments_order(options = {})
-        put attachment_endpoint("/attachment/attachmentsorder", options)
+      def update_attachments_order(order, options = {})
+        put attachment_endpoint("/attachment/attachmentsorder", options), order
       end
 
       # -- endpoint
