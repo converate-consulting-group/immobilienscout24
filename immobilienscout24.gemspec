@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "immobilienscout24"
-  spec.version       = "0.1.7"
+  spec.version       = "0.1.8"
   spec.author        = ["Converate Consulting Group GmbH"]
   spec.email         = ["info@converate.com"]
   spec.description   = %q{A Ruby wrapper for the Immobilienscout24 REST API}
