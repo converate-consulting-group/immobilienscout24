@@ -84,6 +84,16 @@ module Immobilienscout24
         delete attachment_endpoint("/attachment/#{id}", options)
       end
 
+      # Set attachment order.
+      #
+      # @param options [Hash] Additional options
+      # @return [Hashie::Mash] Immobilienscout24 response
+      # @example
+      #   client.update_attachments_order(estate: 62412598, user: immoscout_user_id)
+      def update_attachments_order(options = {})
+        put attachment_endpoint("/attachment/attachmentsorder", options)
+      end
+
       # -- endpoint
 
       # Generates the attachment endpoint
