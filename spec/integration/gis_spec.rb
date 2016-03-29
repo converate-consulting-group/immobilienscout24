@@ -10,9 +10,21 @@ describe Immobilienscout24::Api::Gis, vcr: true do
     end
   end
 
+  describe "continent" do
+    it 'should return countries' do
+      expect(client.continent(1)).to include('gis.countries')
+    end
+  end
+
   describe "countries" do
     it 'should return countries' do
       expect(client.countries(1)).to include('gis.countries')
+    end
+  end
+
+  describe "country" do
+    it 'should return country' do
+      expect(client.country(1, 276)).to include('gis.country')
     end
   end
 
@@ -22,15 +34,33 @@ describe Immobilienscout24::Api::Gis, vcr: true do
     end
   end
 
+  describe "region" do
+    it 'should return cities' do
+      expect(client.cities(1, 276, 4)).to include('gis.cities')
+    end
+  end
+
   describe "cities" do
     it 'should return cities' do
       expect(client.cities(1, 276, 4)).to include('gis.cities')
     end
   end
 
+  describe "city" do
+    it 'should return quarters' do
+      expect(client.city(1, 276, 4, 1)).to include('gis.city')
+    end
+  end
+
   describe "quarters" do
     it 'should return quarters' do
       expect(client.quarters(1, 276, 4, 1)).to include('gis.quarters')
+    end
+  end
+
+  describe "quarter" do
+    it 'should return quarter' do
+      expect(client.quarter(1, 276, 4, 1, 74)).to include('gis.quarter')
     end
   end
 
