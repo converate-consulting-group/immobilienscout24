@@ -3,8 +3,9 @@ branches:
     - master
 language: ruby
 rvm:
-  - 1.9.3
   - 2.0.0
+  - 2.1.0
+  - 2.2.0
 script: rspec
 before_script:
   - cp spec/support/auth.yml.tmpl spec/support/auth.yml
