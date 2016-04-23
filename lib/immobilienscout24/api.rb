@@ -10,7 +10,7 @@ require "immobilienscout24/api/publish"
 require "immobilienscout24/api/attachment"
 require "immobilienscout24/api/contact"
 require "immobilienscout24/api/gis"
-require "lib/immobilienscout24/api/expose"
+require "immobilienscout24/api/expose"
 
 module Immobilienscout24
   module Api
