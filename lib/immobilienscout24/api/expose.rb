@@ -11,7 +11,7 @@ module Immobilienscout24
       # @example
       #   client.get(real_estate_id)
       def expose(id, options = {})
-        get expose_endpoint("/realestate/#{id}")
+        get expose_endpoint("/#{id}")
       end
 
 
